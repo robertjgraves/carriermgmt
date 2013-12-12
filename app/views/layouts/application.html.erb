@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Carrier Management</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<h1>Carrier Management</h1>
+<ul>
+	<li><%= link_to 'Carriers', carriers_path %></li>
+</ul>
+<%= yield %>
+
+</body>
+</html>

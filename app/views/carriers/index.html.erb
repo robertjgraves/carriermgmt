@@ -1,0 +1,19 @@
+<h2>Carriers</h2>
+<%= link_to 'New Carrier', new_carrier_path %>
+<table>
+	<tr>
+		<th>Name</th>
+		<th></th>
+		<th></th>
+		<th></th>
+	</tr>
+
+	<% @carriers.each do |carrier| %>
+		<tr>
+			<td><%= carrier.name %></td>
+			<td><%= link_to 'Show', carrier %></td>
+			<td><%= link_to 'Edit', edit_carrier_path(carrier) %></td>
+			<td><%= link_to 'Delete', carrier_path(carrier), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		</tr>
+	<% end %>
+</table>
