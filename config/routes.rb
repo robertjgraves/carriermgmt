@@ -1,5 +1,7 @@
 Carriermgmt::Application.routes.draw do
-  resources :carriers
+  resources :carriers do
+  	resources :rates
+  end
   
   resources :locations do
   	resources :origin_destination_pairs
@@ -7,6 +9,10 @@ Carriermgmt::Application.routes.draw do
   
   resources :origin_destination_pairs do
   	resources :locations
+  end
+
+  resources :rates do 
+    resources :carriers
   end
     
   get "welcome/index"

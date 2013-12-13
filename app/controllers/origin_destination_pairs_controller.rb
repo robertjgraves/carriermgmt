@@ -1,7 +1,9 @@
 class OriginDestinationPairsController < ApplicationController
 	def index
-		@origin_destination_pairs = OriginDestinationPair.all
+		@origin_destination_pairs = OriginDestinationPair.order("locations.name").joins(:location).all
 	end
+
+	#.includes(:replies).order("replies.created_at ASC")
 
 	def show
 		@origin_destination_pair = OriginDestinationPair.find(params[:id])
@@ -9,7 +11,8 @@ class OriginDestinationPairsController < ApplicationController
 
 	def new
 		@origin_destination_pair = OriginDestinationPair.new
-		@locations = Location.all
+		@locations = Location.order(:name).all
+		
 	end
 
 	def create

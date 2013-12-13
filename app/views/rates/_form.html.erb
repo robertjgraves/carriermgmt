@@ -1,0 +1,13 @@
+<%= simple_form_for @rate do |f| %>
+	<%= f.input :carrier_id, collection: @carriers %>
+	<%= f.input :origin_destination_pair_id, collection: @origin_destination_pairs, label_method: :id, value_method: :id %>
+	<%= f.input :rate %>
+	<%= f.input :surcharge %>
+	<%= f.input :effective_date %>
+
+	<br>
+	<div class="form-actions">
+		<%= f.button :submit, :class => "btn btn-primary" %>
+	</div>
+<% end %>
+

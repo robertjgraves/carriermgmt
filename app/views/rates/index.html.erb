@@ -1,0 +1,25 @@
+<h2>All Rates</h2>
+<%= link_to 'New Rate', new_rate_path %>
+<table class="table table-striped">
+	<tr>
+		<th>Carrier</th>
+		<th>Route</th>
+		<th>Rate</th>
+		<th>Surcharge</th>
+		<th>All-In Amount</th>
+		<th>Effective Date</th>
+		<th></th>
+	</tr>
+
+	<% @rates.each do |rate| %>
+		<tr>
+			<td><%= rate.carrier_id %> <%= rate.carrier.name %></td>
+			<td><%= rate.origin_destination_pair_id %> <%= rate.origin_destination_pair.origin_id %> to <%= rate.origin_destination_pair.destination_id %> </td>
+			<td><%= rate.rate %></td>
+			<td><%= rate.surcharge %></td>
+			<td><%= rate.rate + rate.surcharge %></td>
+			<td><%= rate.effective_date %></td>
+			<td></td>
+		</tr>
+	<% end %>
+</table>
