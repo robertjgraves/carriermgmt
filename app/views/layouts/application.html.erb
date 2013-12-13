@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Carrier Management</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-<h1>Carrier Management</h1>
-<ul>
-	<li><%= link_to 'Home', root_path %></li>
-	<li><%= link_to 'Carriers', carriers_path %></li>
-	<li><%= link_to 'Locations', locations_path %></li>
-</ul>
-<%= yield %>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "Carriermgmt" %></title>
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Carriermgmt" %>">
+    <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <header>
+      <%= render 'layouts/navigation' %>
+    </header>
+    <main role="main">
+       <%= render 'layouts/messages' %>
+       <%= yield %>
+    </main>
 
-</body>
+    
+  </body>
 </html>

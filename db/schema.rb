@@ -11,23 +11,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131212212204) do
+ActiveRecord::Schema.define(version: 20131213000901) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "carriers", force: true do |t|
-    t.text     "name"
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "locations", force: true do |t|
-    t.text     "name"
-    t.text     "city"
-    t.text     "state"
+    t.string   "name"
+    t.string   "city"
+    t.string   "state"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "origin_destination_pairs", force: true do |t|
+    t.integer  "origin_id"
+    t.integer  "destination_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "origin_destination_pairs", ["destination_id"], name: "index_origin_destination_pairs_on_destination_id", using: :btree
+  add_index "origin_destination_pairs", ["origin_id", "destination_id"], name: "index_origin_destination_pairs_on_origin_id_and_destination_id", unique: true, using: :btree
+  add_index "origin_destination_pairs", ["origin_id"], name: "index_origin_destination_pairs_on_origin_id", using: :btree
 
 end

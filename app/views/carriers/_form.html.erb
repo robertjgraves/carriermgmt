@@ -1,20 +1,8 @@
-<%= form_for @carrier do |f| %>
-	<% if @carrier.errors.any? %>
-	<div id="error_explanation">
-		<h2><%= pluralize(@carrier.errors.count, "error") %> prohibited this carrier from being saved:</h2>
-		<ul>
-		<% @carrier.errors.full_messages.each do |msg| %>
-			<li><%= msg %></li>
-		<% end %>
-		</ul>
-	</div>
-	<% end %>
-	<p>
-		<%= f.label :name %><br>
-		<%= f.text_field :name %>
-	</p>
+<%= simple_form_for @carrier do |f| %>
+	
 
-	<p>
-		<%= f.submit %>
-	</p>
+	<%= f.input :name, label: 'Carrier Name' %><br>
+	<br>
+	<%= f.button :submit %>
+
 <% end %>
