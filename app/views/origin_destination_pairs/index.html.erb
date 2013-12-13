@@ -1,2 +1,23 @@
 <h2>Origin &amp; Destination Pairs</h2>
 <%= link_to 'New Origin and Destination Pair', new_origin_destination_pair_path %>
+
+<table class="table table-striped">
+	<tr>
+		<th>Origin</th>
+		<th>Destination</th>
+		<th></th>
+
+	</tr>
+
+	<% @origin_destination_pairs.each do |origin_destination_pair| %>
+		<tr>
+			<td><%= origin_destination_pair.origin_id %>
+			<%= origin_destination_pair.location.name %>
+			</td>
+			<td><%= origin_destination_pair.destination_id %>
+			<%= origin_destination_pair.destination.name %>
+			</td>
+			
+		</tr>
+	<% end %>
+</table>
